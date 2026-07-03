@@ -906,3 +906,104 @@ button {
     margin-bottom: 12px !important;
   }
 }
+
+
+/* FINAL CLAMPED PORTRAIT FIX
+   Rizal is now a fixed background layer, not dependent on img alignment.
+*/
+.rizal-portrait {
+  position: fixed !important;
+  left: 0 !important;
+  right: auto !important;
+  top: 0 !important;
+  bottom: auto !important;
+  width: 50vw !important;
+  height: 100vh !important;
+  z-index: 1 !important;
+  opacity: 0.55 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+
+  background-image: url("assets/rizal.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: right bottom !important;
+  background-size: auto calc(78vh - 100px) !important;
+
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  transform: none !important;
+}
+
+.rizal-portrait img {
+  display: none !important;
+}
+
+.paciano-portrait {
+  position: fixed !important;
+  right: 6% !important;
+  left: auto !important;
+  top: auto !important;
+  bottom: 10px !important;
+  z-index: 2 !important;
+  width: 280px !important;
+  height: 470px !important;
+  pointer-events: none !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+}
+
+.paciano-portrait img {
+  max-height: 470px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.85)) !important;
+}
+
+.progress-panel {
+  position: fixed !important;
+  top: 24px !important;
+  right: 24px !important;
+  left: auto !important;
+  z-index: 20 !important;
+  max-width: 280px !important;
+}
+
+.top-label,
+.dialogue-box,
+.action-area,
+.ending-card {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+@media (max-width: 850px) {
+  .rizal-portrait {
+    width: 55vw !important;
+    opacity: 0.32 !important;
+    background-size: auto calc(58vh - 70px) !important;
+    background-position: right bottom !important;
+  }
+
+  .paciano-portrait {
+    right: 2% !important;
+    bottom: 0 !important;
+    width: 135px !important;
+    height: 245px !important;
+    opacity: 0.72 !important;
+  }
+
+  .paciano-portrait img {
+    max-height: 245px !important;
+  }
+
+  .progress-panel {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    max-width: none !important;
+    margin-bottom: 12px !important;
+  }
+}
