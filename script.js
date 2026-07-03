@@ -102,7 +102,7 @@ const scenes = {
     title: "SCENE 3.2 – SPEND TIME WITH PACIANO",
     bg: "bg-c1s1",
     character: "Paciano",
-    sprite: "paciano.png",
+    sprite: "paciano.jfif",
     young: false,
     lines: [
       ["Paciano", "José... something terrible has happened."],
@@ -793,14 +793,18 @@ function renderLines(lines) {
 function renderCharacter(scene) {
   if (!scene.character) return "";
 
-  const youngClass = scene.young ? "young" : "";
-  const sprite = scene.sprite || "rizal.png";
-  const alt = scene.character;
+  const showPaciano = scene.sprite === "paciano.jfif";
 
   return `
-    <div class="character ${youngClass}">
-      <img src="assets/${sprite}" alt="${alt}" />
+    <div class="rizal-portrait">
+      <img src="assets/rizal.png" alt="Rizal" />
     </div>
+
+    ${showPaciano ? `
+      <div class="paciano-portrait">
+        <img src="assets/paciano.jfif" alt="Paciano" />
+      </div>
+    ` : ""}
   `;
 }
 
@@ -884,7 +888,7 @@ function renderChoice(sceneId, scene) {
   }).join("");
 
   const progress = sceneProgress[sceneId];
-  const continueHtml = progress && isSceneComplete(sceneId)
+  const continueHtml = progress && progress.continueTo && isSceneComplete(sceneId)
     ? `<button class="continue-button" onclick="goTo('${progress.continueTo}')">Continue</button>`
     : "";
 
