@@ -222,32 +222,9 @@ button {
   height: 270px;
 }
 
-.character::before {
-  content: "";
-  position: absolute;
-  top: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  background: #d8a46f;
-}
-
 .character.young::before {
   width: 70px;
   height: 70px;
-}
-
-.character::after {
-  content: attr(data-name);
-  position: absolute;
-  bottom: 36px;
-  width: 100%;
-  text-align: center;
-  color: #fff4ce;
-  font-size: 1.2rem;
-  letter-spacing: 0.12em;
 }
 
 .action-area {
@@ -512,31 +489,31 @@ button {
    Example: assets/c1s1.png, assets/spain.png, assets/Flag.png
 */
 .bg-c1s1 {
-  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.78)), url("assets/c1s1.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.78)), url("assets/c1s1.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .bg-c1s31 {
-  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.78)), url("assets/c1s3.1.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.78)), url("assets/c1s3.1.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .bg-scene4 {
-  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.78)), url("assets/4.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.78)), url("assets/4.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .bg-spain {
-  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.78)), url("assets/spain.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.78)), url("assets/spain.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .bg-c2p2 {
-  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.78)), url("assets/c2p2.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.78)), url("assets/c2p2.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -548,15 +525,384 @@ button {
 }
 
 .bg-last {
-  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.82)), url("assets/last.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.82)), url("assets/Last.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .bg-flag {
-  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.82)), url("assets/Flag.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.82)), url("assets/flag.jpg");
   background-size: cover;
   background-position: center;
 }
 
 
+
+
+
+
+
+/* Narration styling */
+.dialogue-box .narrator-line,
+.ending-card .narrator-line {
+  font-style: italic !important;
+  color: #efe4cf;
+}
+
+
+/* FINAL SPRITE FIX: remove generated placeholder body/head completely */
+.character,
+.character.young {
+  background: transparent !important;
+  background-image: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.character::before,
+.character::after,
+.character.young::before,
+.character.young::after {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+.character img {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+}
+
+
+/* LARGE LEFT RIZAL + RIGHT PACIANO LAYOUT */
+.stage {
+  pointer-events: none;
+}
+
+.character.rizal-portrait,
+.character.rizal-portrait.young {
+  left: 0 !important;
+  right: auto !important;
+  bottom: 0 !important;
+  width: 50vw !important;
+  height: 100vh !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: flex-start !important;
+  background: transparent !important;
+  background-image: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  opacity: 0.72 !important;
+  overflow: visible !important;
+  z-index: 1 !important;
+}
+
+.character.rizal-portrait::before,
+.character.rizal-portrait::after,
+.character.rizal-portrait.young::before,
+.character.rizal-portrait.young::after {
+  content: none !important;
+  display: none !important;
+}
+
+.character.rizal-portrait img,
+.character.rizal-portrait.young img {
+  height: 92vh !important;
+  max-height: 92vh !important;
+  width: auto !important;
+  max-width: none !important;
+  object-fit: contain !important;
+  object-position: left bottom !important;
+  filter: drop-shadow(0 0 34px rgba(0, 0, 0, 0.85)) !important;
+}
+
+.side-character.paciano-portrait {
+  position: absolute;
+  right: 6%;
+  bottom: 0;
+  z-index: 2;
+  width: 300px;
+  height: 520px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.side-character.paciano-portrait img {
+  max-height: 520px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.85));
+}
+
+/* Keep UI above portraits */
+.top-label,
+.dialogue-box,
+.action-area,
+.progress-panel,
+.ending-card {
+  position: relative;
+  z-index: 5 !important;
+}
+
+@media (max-width: 850px) {
+  .character.rizal-portrait,
+  .character.rizal-portrait.young {
+    width: 58vw !important;
+    height: 100vh !important;
+    opacity: 0.38 !important;
+  }
+
+  .character.rizal-portrait img,
+  .character.rizal-portrait.young img {
+    height: 70vh !important;
+    max-height: 70vh !important;
+  }
+
+  .side-character.paciano-portrait {
+    right: 2%;
+    width: 150px;
+    height: 270px;
+    opacity: 0.65;
+  }
+
+  .side-character.paciano-portrait img {
+    max-height: 270px;
+  }
+}
+
+
+/* LOCKED PORTRAIT FIX */
+.character.rizal-portrait,
+.character.rizal-portrait.young {
+  position: fixed !important;
+  left: 0 !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: 0 !important;
+  width: 50vw !important;
+  height: 100vh !important;
+  z-index: 1 !important;
+  opacity: 0.58 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: flex-start !important;
+  pointer-events: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.character.rizal-portrait img,
+.character.rizal-portrait.young img {
+  height: 78vh !important;
+  max-height: 78vh !important;
+  width: auto !important;
+  max-width: none !important;
+  object-fit: contain !important;
+  object-position: left bottom !important;
+  transform: translateY(95px) !important;
+  filter: drop-shadow(0 0 34px rgba(0, 0, 0, 0.85)) !important;
+}
+
+.side-character.paciano-portrait {
+  position: fixed !important;
+  right: 6% !important;
+  left: auto !important;
+  bottom: 10px !important;
+  z-index: 2 !important;
+  width: 280px !important;
+  height: 470px !important;
+  pointer-events: none !important;
+}
+
+.side-character.paciano-portrait img {
+  max-height: 470px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+/* Keep the values panel away from the left portrait */
+.progress-panel {
+  position: fixed !important;
+  top: 24px !important;
+  right: 24px !important;
+  left: auto !important;
+  z-index: 8 !important;
+  max-width: 280px !important;
+}
+
+/* Keep story UI above all portraits */
+.top-label,
+.dialogue-box,
+.action-area,
+.ending-card {
+  position: relative !important;
+  z-index: 6 !important;
+}
+
+@media (max-width: 850px) {
+  .character.rizal-portrait,
+  .character.rizal-portrait.young {
+    width: 55vw !important;
+    opacity: 0.32 !important;
+  }
+
+  .character.rizal-portrait img,
+  .character.rizal-portrait.young img {
+    height: 58vh !important;
+    max-height: 58vh !important;
+    transform: translateY(60px) !important;
+  }
+
+  .side-character.paciano-portrait {
+    right: 2% !important;
+    bottom: 0 !important;
+    width: 135px !important;
+    height: 245px !important;
+    opacity: 0.72 !important;
+  }
+
+  .side-character.paciano-portrait img {
+    max-height: 245px !important;
+  }
+
+  .progress-panel {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    max-width: none !important;
+    margin-bottom: 12px !important;
+  }
+}
+
+
+/* GITHUB PAGES FINAL PORTRAIT LOCK
+   Uses dedicated classes from script.js, so old .character styles cannot move it.
+*/
+.rizal-portrait {
+  position: fixed !important;
+  left: 0 !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: 0 !important;
+  width: 50vw !important;
+  height: 100vh !important;
+  z-index: 1 !important;
+  opacity: 0.58 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: flex-start !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.rizal-portrait img {
+  height: 78vh !important;
+  max-height: 78vh !important;
+  width: auto !important;
+  max-width: none !important;
+  object-fit: contain !important;
+  object-position: left bottom !important;
+  transform: translateY(95px) !important;
+  filter: drop-shadow(0 0 34px rgba(0, 0, 0, 0.85)) !important;
+}
+
+.paciano-portrait {
+  position: fixed !important;
+  right: 6% !important;
+  left: auto !important;
+  top: auto !important;
+  bottom: 10px !important;
+  z-index: 2 !important;
+  width: 280px !important;
+  height: 470px !important;
+  pointer-events: none !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+}
+
+.paciano-portrait img {
+  max-height: 470px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.85)) !important;
+}
+
+.progress-panel {
+  position: fixed !important;
+  top: 24px !important;
+  right: 24px !important;
+  left: auto !important;
+  z-index: 20 !important;
+  max-width: 280px !important;
+}
+
+.top-label,
+.dialogue-box,
+.action-area,
+.ending-card {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.character:not(.rizal-portrait) {
+  background: transparent !important;
+  background-image: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.character:not(.rizal-portrait)::before,
+.character:not(.rizal-portrait)::after {
+  content: none !important;
+  display: none !important;
+}
+
+@media (max-width: 850px) {
+  .rizal-portrait {
+    width: 55vw !important;
+    opacity: 0.34 !important;
+  }
+
+  .rizal-portrait img {
+    height: 58vh !important;
+    max-height: 58vh !important;
+    transform: translateY(60px) !important;
+  }
+
+  .paciano-portrait {
+    right: 2% !important;
+    bottom: 0 !important;
+    width: 135px !important;
+    height: 245px !important;
+    opacity: 0.72 !important;
+  }
+
+  .paciano-portrait img {
+    max-height: 245px !important;
+  }
+
+  .progress-panel {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    max-width: none !important;
+    margin-bottom: 12px !important;
+  }
+}
